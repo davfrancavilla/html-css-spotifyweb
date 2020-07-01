@@ -2,6 +2,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
 }
 
 .container {
@@ -17,7 +26,90 @@ main {
 
 .left {
     background-color: black;
+    max-height: calc(100vh - 80px);
     width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.left ul {
+    color: #6f6f6f;
+}
+
+li.mobile-view {
+    display: none;
+}
+
+#small-logo {
+    display: none;
+}
+
+.menu {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu img {
+    width: 180px;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+.menu li {
+    padding-left: 20px;
+    list-style: none;
+    line-height: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.menu a {
+    color: #6f6f6f;
+}
+
+.menu i {
+    font-size: 25px;
+    vertical-align: middle;
+    padding-right: 10px;
+}
+
+.menu ul:nth-child(4) li:last-child i{
+    font-size: 40px;
+}
+
+#home {
+    color: white;
+    padding-left: 18px;
+    border-left: 2px solid #adff2f;
+}
+
+#home a {
+    color: white;
+}
+
+#playlist a{
+    text-transform: uppercase;
+    color: white;
+}
+
+.menu ul:first-of-type li:nth-child(3){
+    margin-bottom: 20px;
+}
+
+.menu ul:last-of-type {
+    overflow-y: auto;
+}
+
+.user {
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
 }
 
 .right {
@@ -30,9 +122,166 @@ main {
 .upgrade {
     height: 80px;
     background-color: #080b12;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.right .upgrade button {
+    padding: 10px 40px;
+    border-radius: 20px;
+    color: white;
+    background-color: #080b12;
+    text-transform: uppercase;
+    border: 1px solid white;
+}
+
+.right .content {
+    display: flex;
+    flex-direction: column;
+}
+
+.right .content ul li {
+    display: inline-block;
+    padding: 20px 10px;
+}
+
+.right .content ul li a {
+    color: #6f6f6f;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.right .list {
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right .list ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.right .music {
+    height: calc(100vh - 240px);
+}
+
+.right .music h2,
+.right .music h4 {
+    color: white;
+}
+
+.right .music h4 {
+    margin: 10px 0;
+}
+
+.right .music {
+    padding: 10px 20px;
+    overflow-y: scroll;
+}
+
+.music .box {
+    text-align: center;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.music .box img {
+    margin-top: 20px;
+}
+
+.music h2:not(:first-of-type) {
+    margin-top: 40px;
+}
+
+small {
+    color: #6f6f6f;
+}
+
+small.block {
+    display: block;
+    margin-top: 10px;
+}
+
+img.circle {
+    border-radius: 50%;
+}
+
+small:last-of-type {
+    padding-bottom: 30px;
 }
 
 .bottom-bar {
     background-color: #282828;
     height: 80px;
+}
+
+@media screen and (max-width: 767px) {
+    #big-logo {
+        display: none;
+    }
+
+    #small-logo {
+        display: block;
+        filter: invert(1);
+        width: 40px;
+        padding: 0;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    .left {
+        width: 50px;
+    }
+
+    li.mobile-view {
+        display: block;
+        padding: 5px 0;
+    }
+
+    li.mobile-view i {
+        padding: 0;
+    }
+
+    .left ul:nth-child(4),
+    .left ul:nth-child(5) {
+        display: none;
+    }
+
+    .right .content ul li {
+        padding: 5px 10px;
+    }
+
+    .menu {
+        align-items: center;
+    }
+
+    .right .music .box img {
+        height: 120px;
+    }
+
+    .upgrade {
+        height: 60px;
+    }
+}
+
+@media screen and (max-width: 935px) {
+    .right .list {
+        height: 120px;
+    }
+
+    .right .music {
+        height: calc(100vh - 280px);
+    }
+
+}
+
+@media screen and (max-width: 419px) {
+    .right .music .box img {
+        height: 112px;
+    }
 }
