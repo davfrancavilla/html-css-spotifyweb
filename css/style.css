@@ -13,6 +13,13 @@ a {
     text-decoration: none;
 }
 
+li a:hover,
+.right .content ul li a:hover,
+.bottom-bar .song-info i:hover {
+    color: white;
+    cursor: pointer;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -20,7 +27,6 @@ a {
 
 main {
     display: flex;
-    flex-direction: row;
     height: calc(100vh - 80px);
 }
 
@@ -164,12 +170,17 @@ li.mobile-view {
 
 .right .upgrade button {
     padding: 10px 40px;
+    margin-right: 10px;
     border-radius: 20px;
     color: white;
     background-color: #080b12;
     text-transform: uppercase;
     border: 1px solid white;
     cursor: pointer;
+}
+
+.right .upgrade button:hover {
+    transform: scale(105%);
 }
 
 .right .content {
@@ -187,6 +198,23 @@ li.mobile-view {
     text-transform: uppercase;
     font-size: 12px;
     letter-spacing: 2px;
+}
+
+
+
+.right .content ul li:first-of-type {
+position: relative;
+}
+
+.right .content ul li:first-of-type::after {
+content: '';
+position: absolute;
+left: 50%;
+transform: translateX(-50%);
+width: 30%;
+display: block;
+height: 2px;
+background-color: #a2ef30;
 }
 
 .right .list {
@@ -211,9 +239,6 @@ li.mobile-view {
     width: 100%;
 }
 
-/* .right .music h2 {
-    margin-top: 40px;
-} */
 
 .right .music h2,
 .right .music h4 {
@@ -243,8 +268,46 @@ li.mobile-view {
     width: 150px;
 }
 
-.music .box img {
+.image-box {
+    height: 150px;
+    width: 150px;
+
     margin-top: 20px;
+    position: relative;
+}
+
+.image-box .layer {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.layer i {
+    color: white;
+    font-size: 50px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.layer i:hover {
+    cursor: pointer;
+}
+
+.box .image-box:hover .layer{
+    display: block;
+    background-color: #00000078;
+}
+
+
+
+.music .row:last-child .image-box,
+.music .row:last-child .image-box .layer,
+.music .row:last-child .image-box img {
+    border-radius: 50%;
 }
 
 .right .music .row:not(:first-of-type) h2 {
@@ -278,6 +341,10 @@ img.circle {
     color: white;
 }
 
+.bottom-bar i:hover {
+    cursor: pointer;
+}
+
 .song-info {
     padding: 0 10px;
     height: 50px;
@@ -290,6 +357,12 @@ img.circle {
     height: 50px;
 }
 
+.bottom-bar .song-info,
+.bottom-bar .player,
+.bottom-bar .controls {
+    height: 100%;
+}
+
 .bottom-bar .song-info .text {
     padding-left: 10px;
     padding-right: 30px;
@@ -298,6 +371,12 @@ img.circle {
 .bottom-bar .song-info .text div:last-child {
     color: #6f6f6f;
     font-size: 12px;
+}
+
+.bottom-bar .song-info .text div:last-child:hover {
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .bottom-bar .song-info i {
@@ -328,17 +407,21 @@ img.circle {
 
 #play {
     font-size: 30px;
-    padding: 0 20px;
+    margin: 0 20px;
+}
+
+#play:hover {
+    transform: scale(110%);
 }
 
 .top-player i:first-child,
 .top-player i:nth-child(4),
 .top-player i:last-child{
-    padding-right: 10px;
+    margin-right: 10px;
 }
 
 .top-player i:first-child {
-    padding-left: 10px;
+    margin-left: 10px;
 }
 
 .top-player,
@@ -481,6 +564,11 @@ progress::-webkit-progress-bar {
         align-items: center;
     }
 
+    .image-box {
+        height: 120px;
+        width: 120px;
+    }
+
     .right .music .box img {
         height: 120px;
     }
@@ -503,6 +591,10 @@ progress::-webkit-progress-bar {
         width: 33.3333%;
     }
 
+    .bottom-bar .song-info .text {
+        padding-right: 10px;
+    }
+
     .bottom-bar .song-info .icons {
         display: flex;
         flex-direction: column;
@@ -515,6 +607,25 @@ progress::-webkit-progress-bar {
 
     .player {
         width: 33.3333%;
+    }
+
+    .top-player i {
+        font-size: 12px;
+    }
+
+    #play {
+        font-size: 21px;
+        margin: 0 15px;
+    }
+
+    .top-player i:first-child,
+    .top-player i:nth-child(4),
+    .top-player i:last-child {
+        margin-right: 7px;
+    }
+
+    .bottom-player {
+        font-size: 10px;
     }
 
     .controls {
@@ -535,6 +646,11 @@ progress::-webkit-progress-bar {
 }
 
 @media screen and (max-width: 419px) {
+    .image-box {
+        height: 112px;
+        width: 112px;
+    }
+
     .right .music .box img {
         height: 112px;
     }
