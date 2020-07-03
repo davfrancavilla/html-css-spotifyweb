@@ -543,6 +543,10 @@ progress::-webkit-progress-bar {
         padding: 0;
     }
 
+    li.mobile-view i:hover {
+        color: white;
+    }
+
     .right .content ul li a {
         letter-spacing: 1px;
     }
@@ -587,7 +591,7 @@ progress::-webkit-progress-bar {
         align-items: center;
     }
 
-    .song-info {
+    /* .song-info {
         width: 33.3333%;
     }
 
@@ -631,6 +635,11 @@ progress::-webkit-progress-bar {
     .controls {
         width: 33.3333%;
         justify-content: space-between;
+    } */
+
+    .controls progress {
+        transform: rotate(-90deg);
+        width: 60px;
     }
 }
 
